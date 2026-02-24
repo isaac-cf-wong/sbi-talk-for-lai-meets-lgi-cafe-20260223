@@ -1,386 +1,943 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Resource hints for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+        <!-- Resource hints for performance -->
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+            crossorigin
+        />
+        <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
 
-    <title>Presentation Template</title>
-    <meta
-      name="description"
-      content="A modern presentation built with reveal.js"
-    />
-    <meta name="author" content="Your Name" />
+        <title>Simulation-Based Inference in GW Astronomy</title>
+        <meta
+            name="description"
+            content="A modern presentation built with reveal.js"
+        />
+        <meta name="author" content="Isaac C. F. Wong" />
 
-    <!-- Favicon (early for quick load) -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+        <!-- Favicon (early for quick load) -->
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
 
-    <!-- Critical CSS (reveal.js core) -->
-    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css" />
-    <!-- Theme CSS (change theme here) -->
-    <link
-      rel="stylesheet"
-      href="node_modules/reveal.js/dist/theme/black.css"
-      id="theme"
-    />
+        <!-- Critical CSS (reveal.js core) -->
+        <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css" />
+        <!-- Theme CSS (change theme here) -->
+        <link
+            rel="stylesheet"
+            href="node_modules/reveal.js/dist/theme/simple.css"
+            id="theme"
+        />
 
-    <!-- Preload critical JavaScript -->
-    <link
-      rel="preload"
-      href="node_modules/reveal.js/dist/reveal.js"
-      as="script"
-    />
+        <!-- Preload critical JavaScript -->
+        <link
+            rel="preload"
+            href="node_modules/reveal.js/dist/reveal.js"
+            as="script"
+        />
 
-    <!-- Non-critical CSS (can load async) -->
-    <link
-      rel="preload"
-      href="node_modules/reveal.js/plugin/highlight/monokai.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="node_modules/reveal.js/plugin/highlight/monokai.css"
-    /></noscript>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css" />
-  </head>
-
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <!-- Title Slide -->
-        <section
-          data-background-gradient="linear-gradient(to bottom, #283048, #859398)"
-        >
-          <h1>Presentation Template</h1>
-          <h3>Built with reveal.js</h3>
-          <p>
-            <small>Created by <span>Your Name</span></small>
-          </p>
-          <aside class="notes">
-            Welcome to your presentation template. This is the title slide. You
-            can add speaker notes here that won't be visible to the audience.
-          </aside>
-        </section>
-
-        <!-- About Section -->
-        <section>
-          <h2>About This Template</h2>
-          <ul>
-            <li class="fragment">🎯 Modern and responsive design</li>
-            <li class="fragment">📱 Works on desktop, tablet, and mobile</li>
-            <li class="fragment">🎨 Multiple themes available</li>
-            <li class="fragment">📝 Markdown support</li>
-            <li class="fragment">🖼️ Rich media support</li>
-          </ul>
-          <aside class="notes">
-            This slide demonstrates fragment animations. Each bullet point will
-            appear one by one when you advance.
-          </aside>
-        </section>
-
-        <!-- Features Section -->
-        <section>
-          <section>
-            <h2>Features</h2>
-            <p>Explore the capabilities of this template</p>
-            <p><small>↓ Navigate down to see more</small></p>
-          </section>
-
-          <section>
-            <h3>Code Highlighting</h3>
-            <pre><code data-trim data-noescape>
-function createPresentation() {
-    const slides = [
-        'Introduction',
-        'Content',
-        'Conclusion'
-    ];
-
-    return slides.map(slide => ({
-        title: slide,
-        content: 'Amazing content here!'
-    }));
-}
-                    </code></pre>
-          </section>
-
-          <section>
-            <h3>Math Support</h3>
-            <p>You can include mathematical equations:</p>
-            <p>$$E = mc^2$$</p>
-            <p>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$</p>
-          </section>
-
-          <section>
-            <h3>Media Support</h3>
-            <div
-              style="
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-              "
-            >
-              <div>
-                <h4>Images</h4>
-                <img
-                  src="images/sample-image.jpg"
-                  alt="Sample"
-                  style="
-                    width: 200px;
-                    height: 150px;
-                    object-fit: cover;
-                    border-radius: 8px;
-                  "
-                />
-              </div>
-              <div>
-                <h4>Videos</h4>
-                <video
-                  width="200"
-                  height="150"
-                  controls
-                  style="border-radius: 8px"
-                >
-                  <source src="videos/sample-video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-          </section>
-        </section>
-
-        <!-- Markdown Example -->
-        <section data-markdown>
-          <textarea data-template>
-                    ## Markdown Support
-
-                    You can write slides in **Markdown**!
-
-                    - Simple and clean syntax
-                    - Easy to maintain
-                    - Version control friendly
-
-                    > "Simplicity is the ultimate sophistication." - Leonardo da Vinci
-
-                    ### Code blocks work too:
-                    ```javascript
-                    const awesome = true;
-                    console.log('This template is', awesome ? 'amazing!' : 'okay');
-                    ```
-                </textarea
-          >
-        </section>
-
-        <!-- Themes Section -->
-        <section>
-          <h2>Available Themes</h2>
-          <p>Switch between different themes by changing the CSS link:</p>
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(3, 1fr);
-              gap: 1rem;
-              font-size: 0.8em;
+        <!-- Non-critical CSS (can load async) -->
+        <link
+            rel="preload"
+            href="node_modules/reveal.js/plugin/highlight/monokai.css"
+            as="style"
+            onload="
+                this.onload = null
+                this.rel = 'stylesheet'
             "
-          >
-            <div>• black (current)</div>
-            <div>• white</div>
-            <div>• league</div>
-            <div>• beige</div>
-            <div>• sky</div>
-            <div>• night</div>
-            <div>• serif</div>
-            <div>• simple</div>
-            <div>• solarized</div>
-          </div>
-          <p>
-            <small
-              >Edit the theme link in index.html to change appearance</small
-            >
-          </p>
-        </section>
+        />
+        <noscript
+            ><link
+                rel="stylesheet"
+                href="node_modules/reveal.js/plugin/highlight/monokai.css"
+        /></noscript>
 
-        <!-- Getting Started -->
-        <section>
-          <h2>Getting Started</h2>
-          <ol>
-            <li>Clone or use this template repository</li>
-            <li>Run <code>npm install</code> to install dependencies</li>
-            <li>Start development server with <code>npm start</code></li>
-            <li>Edit <code>index.html</code> to create your presentation</li>
-            <li>Customize styles in <code>css/custom.css</code></li>
-          </ol>
-          <p><small>Check the README for detailed instructions</small></p>
-        </section>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/custom.css" />
+    </head>
 
-        <!-- Thank You -->
-        <section
-          data-background-gradient="linear-gradient(to bottom, #134E5E, #71B280)"
-        >
-          <h1>Thank You!</h1>
-          <h3>Questions?</h3>
-          <p>
-            <small>
-              <a href="https://github.com/isaac-cf-wong/presentation-template"
-                >GitHub Repository</a
-              >
-              |
-              <a href="https://revealjs.com/">Reveal.js Documentation</a>
-            </small>
-          </p>
-          <aside class="notes">
-            This is the final slide. Thank your audience and open the floor for
-            questions. Remember to provide links to resources for follow-up.
-          </aside>
-        </section>
-      </div>
-    </div>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <!-- Title Slide -->
+                <section>
+                    <h1>Simulation-Based Inference in GW Astronomy</h1>
+                    <h3>AI Café - Leuven.AI meets LGI</h3>
+                    <p>
+                        <small><span>Isaac C. F. Wong</span></small>
+                        <br />
+                        <small><span>2026-02-23</span></small>
+                    </p>
+                    <div
+                        style="
+                            gap: 160px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        "
+                    >
+                        <img
+                            src="images/leuven_gravity_institute.png"
+                            style="width: 280px"
+                        />
+                        <img
+                            src="images/stadius_b_bg.png"
+                            style="width: 280px"
+                        />
+                    </div>
+                    <aside class="notes"></aside>
+                </section>
 
-    <!-- Reveal.js JavaScript (main script loads synchronously) -->
-    <script src="node_modules/reveal.js/dist/reveal.js"></script>
-    <!-- Reveal.js plugins (deferred for better performance) -->
-    <script src="node_modules/reveal.js/plugin/notes/notes.js" defer></script>
-    <script
-      src="node_modules/reveal.js/plugin/markdown/markdown.js"
-      defer
-    ></script>
-    <script
-      src="node_modules/reveal.js/plugin/highlight/highlight.js"
-      defer
-    ></script>
-    <script src="node_modules/reveal.js/plugin/math/math.js" defer></script>
-    <script src="node_modules/reveal.js/plugin/search/search.js" defer></script>
-    <script src="node_modules/reveal.js/plugin/zoom/zoom.js" defer></script>
+                <!-- About Section -->
+                <section>
+                    <section data-auto-animate>
+                        <h2>
+                            Gravitational Waves: From First Detection to
+                            Hundreds — But Inference is the Bottleneck
+                        </h2>
+                        <div class="grid-2">
+                            <div>
+                                <ul>
+                                    <li>
+                                        GW astronomy is booming:
+                                        <ul>
+                                            <li>
+                                                GW150914 (2025): First detection
+                                            </li>
+                                            <li>
+                                                Now (2026): ~350+ confident
+                                                detections after O4 run
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="images/gw150914.png" />
+                                <figcaption>
+                                    Strain of GW150914 measured by the
+                                    LIGO-Hanford and LIGO-Livingston detectors
+                                    <br />
+                                    <a
+                                        href="https://www.nature.com/articles/s42254-021-00303-8"
+                                        >Bailes et al. (2021)</a
+                                    >
+                                </figcaption>
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>A brief history of GW detection</li>
+                            </ul>
+                        </aside>
+                    </section>
 
-    <!-- Custom JavaScript -->
-    <script src="js/custom.js" defer></script>
+                    <section data-auto-animate>
+                        <h2>
+                            Gravitational Waves: From First Detection to
+                            Hundreds — But Inference is the Bottleneck
+                        </h2>
+                        <div class="grid-2">
+                            <div>
+                                <ul>
+                                    <li>
+                                        GW astronomy is booming:
+                                        <ul>
+                                            <li>
+                                                GW150914 (2025): First detection
+                                            </li>
+                                            <li>
+                                                Now (2026): ~350+ confident
+                                                detections after O4 run
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="images/cumulative_events.png" />
+                                <figcaption>
+                                    Cumulative events - O1 – O4c
+                                    <br />
+                                    <a
+                                        href="https://dcc.ligo.org/LIGO-G2302098/public"
+                                        >LIGO-G2302098</a
+                                    >
+                                </figcaption>
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    The current status in the forth observing
+                                    run.
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-    <script>
-      // Initialize Reveal.js when plugins are ready
-      // Use a small delay to ensure deferred plugin scripts have loaded
-      function initializeReveal() {
-        if (
-          typeof Reveal !== "undefined" &&
-          typeof RevealMarkdown !== "undefined" &&
-          typeof RevealHighlight !== "undefined"
-        ) {
-          Reveal.initialize({
-            // Display presentation control arrows
-            controls: true,
+                    <section data-auto-animate>
+                        <h2>
+                            Gravitational Waves: From First Detection to
+                            Hundreds — But Inference is the Bottleneck
+                        </h2>
+                        <div class="grid-2">
+                            <div>
+                                <ul>
+                                    <li>
+                                        Detections are routine &rarr; next-gen
+                                        detectors promise a yearly rate of
+                                        $10^{5}$ - $10^{6}$ binary neutron star
+                                        and binary black hole coalescences
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <video
+                                    data-autoplay
+                                    controls
+                                    loop
+                                    src="videos/future_event_rate.mp4"
+                                ></video>
+                                <figcaption>
+                                    <a
+                                        href="https://iopscience.iop.org/article/10.3847/1538-4357/ad4709"
+                                        >Broekgaarden et al. (2024)</a
+                                    >
+                                </figcaption>
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Highlight the future prospects of GW
+                                    detection
+                                </li>
+                                <li>
+                                    We will see order of magnitude more events
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Help the user learn the controls
-            controlsTutorial: true,
+                    <section data-auto-animate>
+                        <h2>
+                            Gravitational Waves: From First Detection to
+                            Hundreds — But Inference is the Bottleneck
+                        </h2>
+                        <div class="grid-2">
+                            <div>
+                                <ul>
+                                    <li>
+                                        But classical Bayesian PE (MCMC, nested
+                                        sampling) struggles:
+                                        <ul>
+                                            <li>Hours to days per event</li>
+                                            <li>
+                                                Brutal for overlapping signals,
+                                                exotic waveforms, populations,
+                                                real-time alerts
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                Bayes theorem: $$ p(\theta | d) = \frac{p(d |
+                                \theta) p(\theta)}{\int p(d | \theta)p(\theta)
+                                \mathrm{d}\theta} $$
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Explain the methods of parameter estimation
+                                </li>
+                                <li>
+                                    Explain this will be challenging to keep up
+                                    with the high detection rate
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Display a presentation progress bar
-            progress: true,
+                    <section
+                        data-background-iframe="https://chi-feng.github.io/mcmc-demo/app.html"
+                        data-background-interactive
+                    >
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Explain verbally how MCMC works, and why it
+                                    is challenging
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Display the page number of the current slide
-            slideNumber: "c/t",
+                    <section
+                        data-background-image="images/example_corner_plot.png"
+                        data-background-size="contain"
+                        data-background-position="center"
+                    >
+                        <figcaption
+                            style="position: absolute; top: 160px; right: 20px"
+                        >
+                            <a href="https://arxiv.org/abs/1909.06296"
+                                >Gabbard et al. (2021)</a
+                            >
+                        </figcaption>
+                        <aside class="notes">
+                            <ul>
+                                <li>Explain the corner plot</li>
+                                <li>
+                                    Highlight the high-dimensionality of the
+                                    problem
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Add the current slide number to the URL hash
-            hash: true,
+                    <section data-auto-animate>
+                        <h2>
+                            Gravitational Waves: From First Detection to
+                            Hundreds — But Inference is the Bottleneck
+                        </h2>
+                        <div class="grid-1">
+                            <div>
+                                <ul>
+                                    <li>
+                                        Simulation-Based Inference (SBI):
+                                        <ul>
+                                            <li>
+                                                Amortized neural inference →
+                                                full posteriors in seconds
+                                                (after training), enabling new
+                                                science!
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-            // Push each slide change to the browser history
-            history: false,
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Briefly explain that SBI can provide an
+                                    opportunity to enable new science
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Enable keyboard shortcuts for navigation
-            keyboard: true,
+                    <section data-auto-animate>
+                        <h2>
+                            Gravitational Waves: From First Detection to
+                            Hundreds — But Inference is the Bottleneck
+                        </h2>
+                        <div class="grid-1">
+                            <div>
+                                <img src="images/bayesian_inference_demo.png" />
+                                <figcaption>
+                                    <a hef="https://arxiv.org/abs/2508.12939"
+                                        >Deisler et al. (2025)</a
+                                    >
+                                </figcaption>
+                            </div>
+                        </div>
 
-            // Enable the slide overview mode
-            overview: true,
+                        <aside class="notes">
+                            <ul>
+                                <li>Explain the idea of Bayesian inference</li>
+                                <li>
+                                    Explain performing inference is solving an
+                                    inverse problem, and is difficult
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Vertical centering of slides
-            center: true,
+                    <section data-auto-animate>
+                        <h2>
+                            Gravitational Waves: From First Detection to
+                            Hundreds — But Inference is the Bottleneck
+                        </h2>
+                        <div class="grid-1">
+                            <div>
+                                <img src="images/sbi_demo.png" />
+                                <figcaption>
+                                    <a hef="https://arxiv.org/abs/2508.12939"
+                                        >Deisler et al. (2025)</a
+                                    >
+                                </figcaption>
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Explain the idea of SBI that a direct
+                                    mapping is built from the observation to the
+                                    posterior
+                                </li>
+                                <li>DO NOT mention about GW here</li>
+                                <li>
+                                    The connection should be discussed later
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
 
-            // Enables touch navigation on devices with touch input
-            touch: true,
+                <!-- Features Section -->
+                <section>
+                    <section data-auto-animate>
+                        <h2>SBI in GW Astronomy: Recent Advances</h2>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    A brief opening to mention that the
+                                    application of SBI in GW Astronomy has
+                                    received attention and a significant
+                                    advancement has been made in the recent
+                                    years
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Loop the presentation
-            loop: false,
+                    <section data-auto-animate>
+                        <h2>SBI in GW Astronomy: Recent Advances</h2>
+                        <div class="grid-1">
+                            <ul>
+                                <li>
+                                    Core idea recap:
+                                    <ul>
+                                        <li>
+                                            Simulator generates $10^{5}$ –
+                                            $10^{6}$ ($\theta$, noisy strain)
+                                            pairs
+                                        </li>
+                                        <li>
+                                            Train neural net to learn $p(\theta
+                                            | \mathrm{strain})$ directly
+                                        </li>
+                                        <li>
+                                            Amortized: Train once (costly) →
+                                            fast inference per event (ms–s)
+                                        </li>
+                                        <li>
+                                            No explicit likelihood needed →
+                                            scales to expensive/exotic waveforms
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>Recap the core idea of SBI</li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Change the presentation direction to be RTL
-            rtl: false,
+                    <section data-auto-animate>
+                        <h2>Popular Methods</h2>
+                        <h3>Neural Posterior Estimation</h3>
+                        <img src="images/npe_demo.png" />
+                        <figcaption>
+                            <a href="https://arxiv.org/abs/2507.11192"
+                                >Liang et al. (2025)</a
+                            >
+                        </figcaption>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Build a neural network to generate samples
+                                    conditioned on the observation
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Randomizes the order of slides each time the presentation loads
-            shuffle: false,
+                    <section data-auto-animate>
+                        <h2>Popular Methods</h2>
+                        <h3>Neural Ratio Estimation</h3>
+                        <img src="images/nre_demo.png" />
+                        <figcaption>
+                            <a href="https://arxiv.org/abs/2507.11192"
+                                >Liang et al. (2025)</a
+                            >
+                        </figcaption>
+                        <div style="font-size: 0.8em">
+                            $$ r(\theta | x) = \frac{p(\theta | x)}{p(\theta)}
+                            $$
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Build a neural network to output the ratio
+                                </li>
+                                <li>
+                                    It reformulates the problem in a
+                                    classification problem to classify whether
+                                    the pair of samples are independent
+                                </li>
+                                <li>
+                                    Useful when the likelihood evaluation is
+                                    expensive
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Turns fragments on and off globally
-            fragments: true,
+                    <section data-auto-animate>
+                        <h2>Popular Methods</h2>
+                        <h3>Neural Likelihood Estimation</h3>
+                        <img src="images/nle_demo.png" />
+                        <figcaption>
+                            <a href="https://arxiv.org/abs/2507.11192"
+                                >Liang et al. (2025)</a
+                            >
+                        </figcaption>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Build a neural network to output the
+                                    likelihood
+                                </li>
+                                <li>
+                                    Useful when the likelihood is not tractable
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Flags if the presentation is running in an embedded mode
-            embedded: false,
+                    <section data-auto-animate>
+                        <h2>Popular Methods</h2>
+                        <h3>Flow Matching Posterior Estimation</h3>
+                        <img src="images/fmpe_demo.png" />
+                        <figcaption>
+                            <a href="https://arxiv.org/abs/2507.11192"
+                                >Liang et al. (2025)</a
+                            >
+                        </figcaption>
+                        <div style="font-size: 0.8em">
+                            $$ \frac{\mathrm{d}}{\mathrm{d}t}
+                            \psi_{t,x}(\theta)=v_{t,x}(\psi_{t,x}(\theta))$$
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Train a neural network to output the vector
+                                    field to perform flows at continuous time
+                                </li>
+                                <li>
+                                    Flexible architecture, and often perform
+                                    better in high dimensions
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Flags if we should show a help overlay when the question mark
-            // key is pressed
-            help: true,
+                    <section data-auto-animate>
+                        <h2>Popular Methods</h2>
+                        <h3>Consistency Model Posterior Estimation</h3>
+                        <img src="images/cmpe_demo.png" />
+                        <figcaption>
+                            <a href="https://arxiv.org/abs/2507.11192"
+                                >Liang et al. (2025)</a
+                            >
+                        </figcaption>
+                        <div style="font-size: 0.8em">
+                            $$f_{\phi}(\theta_{t}, t, x) \rightarrow
+                            \theta_{\sigma}$$
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>A generative model</li>
+                                <li>
+                                    In contrast to diffusion models that require
+                                    many steps to obtain good results
+                                </li>
+                                <li>
+                                    It can perform one-step/few-step generation
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Flags if speaker notes should be visible to all viewers
-            showNotes: false,
+                    <section data-auto-animate>
+                        <h2>Key Wins in GW</h2>
+                        <div class="grid-1">
+                            <div>
+                                <ul>
+                                    <li>
+                                        Fast PE for exotic sources (IMBH,
+                                        eccentric/precessing, high-mass)
+                                    </li>
+                                    <li>
+                                        Handling overlapping signals & real
+                                        glitches/noise
+                                    </li>
+                                    <li>
+                                        Population inference over catalogs
+                                        (cosmology, GR tests)
+                                    </li>
+                                    <li>
+                                        Real-data tests: accurate posteriors,
+                                        huge speed-ups
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>Check the time</li>
+                                <li>
+                                    If not much time left, only briefly mention
+                                    the science we can do
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Global override for auto-playing embedded media (video/audio/iframe)
-            autoPlayMedia: null,
+                    <section data-auto-animate>
+                        <h2>Tools & Ecosystem</h2>
+                        <div
+                            class="tools-orbit"
+                            style="
+                                position: relative;
+                                height: 400px;
+                                width: 100%;
+                                text-align: center;
+                            "
+                        >
+                            <div
+                                class="tool"
+                                style="--angle: 0deg; --distance: 180px"
+                            >
+                                <a
+                                    href="https://github.com/PEREGRINE-GW/peregrine"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="images/peregrine_logo.png"
+                                        alt="PEREGRINE"
+                                        width="480"
+                                    />
+                                </a>
+                            </div>
+                            <div
+                                class="tool"
+                                style="--angle: 90deg; --distance: 200px"
+                            >
+                                <a
+                                    href="https://github.com/dingo-gw/dingo"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="images/dingo_gw_logo.png"
+                                        alt="dingo"
+                                        width="360"
+                                    />
+                                </a>
+                            </div>
+                            <div
+                                class="tool"
+                                style="--angle: 190deg; --distance: 260px"
+                            >
+                                <a
+                                    href="https://github.com/kazewong/flowMC"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="images/flowmc_logo.png"
+                                        alt="flowMC"
+                                        width="320"
+                                    />
+                                </a>
+                            </div>
+                            <div
+                                class="tool"
+                                style="--angle: 270deg; --distance: 170px"
+                            >
+                                <a
+                                    href="https://github.com/mj-will/nessai"
+                                    target="_blank"
+                                >
+                                    <span>NESSAI</span>
+                                </a>
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>Introduce the packages</li>
+                                <li>Introduce there are also hybrid methods</li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
 
-            // Number of milliseconds between automatically proceeding to the
-            // next slide, disabled when set to 0
-            autoSlide: 0,
+                <section>
+                    <section><h2>More Challenges</h2></section>
 
-            // Stop auto-sliding after user input
-            autoSlideStoppable: true,
+                    <section data-auto-animate>
+                        <h2>
+                            Why Core-Collapse Supernovae? The Ultimate Challenge
+                            for SBI in GW Astronomy
+                        </h2>
+                        <div class="grid-1">
+                            <ul>
+                                <li>
+                                    Weak & bursty: ~10–100× fainter than BBH
+                                    mergers, short ~0.1–1 s bursts
+                                </li>
+                                <li>
+                                    Diverse morphologies: driven by rotation
+                                    (high-f peaks), SASI (low-f ~100 Hz), prompt
+                                    convection, PNS oscillations/g-modes ramp-up
+                                </li>
+                                <li>
+                                    Multimessenger goldmine: GW + neutrinos + EM
+                                    → probe explosion engine, EOS at
+                                    supranuclear density
+                                </li>
+                                <li>
+                                    Next galactic event: ~1–2 per century (Milky
+                                    Way rate ~1.6/century) — overdue &
+                                    game-changing for real-time science
+                                </li>
+                            </ul>
+                        </div>
 
-            // Enable slide navigation via mouse wheel
-            mouseWheel: false,
+                        <aside class="notes">
+                            <ul>
+                                <li>Explain my research interest</li>
+                                <li>
+                                    Explain there is a good chance to observe
+                                    CCSN GW signals in ET, estimated to be
+                                    0.5/year
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Hides the address bar on mobile devices
-            hideAddressBar: true,
+                    <section data-auto-animate>
+                        <h2>
+                            Why Core-Collapse Supernovae? The Ultimate Challenge
+                            for SBI in GW Astronomy
+                        </h2>
+                        <div class="grid-1">
+                            <ul>
+                                <li>
+                                    Extremely expensive simulators: 3D MHD +
+                                    neutrino transport + GR (weeks per sim)
+                                </li>
+                                <li>
+                                    No analytic templates → traditional PE
+                                    impossible for realistic
+                                    diversity/stochasticity
+                                </li>
+                                <li>
+                                    High multimodality & degeneracies → perfect
+                                    testbed for neural density estimators (NPE,
+                                    FMPE, diffusion models)
+                                </li>
+                                <li>
+                                    Amortized wins: train on catalogs → fast
+                                    posteriors for rotation rate, asymmetry
+                                    strength, EOS hints
+                                </li>
+                            </ul>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Explain the fundamental challenges to study
+                                    CCSN signals
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
 
-            // Opens links in an iframe preview overlay
-            previewLinks: false,
+                    <section
+                        data-auto-animate
+                        data-background-image="images/black_hole_forming_core_collapse.png"
+                        data-background-size="contain"
+                        data-background-position="center"
+                    >
+                        <figcaption
+                            style="position: absolute; top: 670px; left: 0px"
+                        >
+                            <a href="https://arxiv.org/abs/1310.8290"
+                                >Cerdá-Durán et al. (2023)</a
+                            >
+                        </figcaption>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Explain the features of the CCSN GW signals
+                                </li>
+                                <li>Noisy features</li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
 
-            // Transition style
-            transition: "slide", // none/fade/slide/convex/concave/zoom
+                <section>
+                    <h1>Thank You!</h1>
+                    <h3>Questions?</h3>
+                </section>
+            </div>
+        </div>
 
-            // Transition speed
-            transitionSpeed: "default", // default/fast/slow
+        <!-- Reveal.js JavaScript (main script loads synchronously) -->
+        <script src="node_modules/reveal.js/dist/reveal.js"></script>
+        <!-- Reveal.js plugins (deferred for better performance) -->
+        <script
+            src="node_modules/reveal.js/plugin/notes/notes.js"
+            defer
+        ></script>
+        <script
+            src="node_modules/reveal.js/plugin/markdown/markdown.js"
+            defer
+        ></script>
+        <script
+            src="node_modules/reveal.js/plugin/highlight/highlight.js"
+            defer
+        ></script>
+        <script src="node_modules/reveal.js/plugin/math/math.js" defer></script>
+        <script
+            src="node_modules/reveal.js/plugin/search/search.js"
+            defer
+        ></script>
+        <script src="node_modules/reveal.js/plugin/zoom/zoom.js" defer></script>
 
-            // Transition style for full page slide backgrounds
-            backgroundTransition: "fade", // none/fade/slide/convex/concave/zoom
+        <!-- Custom JavaScript -->
+        <script src="js/custom.js" defer></script>
 
-            // Number of slides away from the current that are visible
-            viewDistance: 3,
+        <script>
+            // Initialize Reveal.js when plugins are ready
+            // Use a small delay to ensure deferred plugin scripts have loaded
+            function initializeReveal() {
+                if (
+                    typeof Reveal !== 'undefined' &&
+                    typeof RevealMarkdown !== 'undefined' &&
+                    typeof RevealHighlight !== 'undefined'
+                ) {
+                    Reveal.initialize({
+                        // Display presentation control arrows
+                        controls: true,
 
-            // Number of slides away from the current that are visible on mobile
-            mobileViewDistance: 2,
+                        // Help the user learn the controls
+                        controlsTutorial: true,
 
-            // The display mode that will be used to show slides
-            display: "block",
+                        // Display a presentation progress bar
+                        progress: true,
 
-            // Load reveal.js plugins
-            plugins: [
-              RevealMarkdown,
-              RevealHighlight,
-              RevealNotes,
-              RevealMath.KaTeX,
-              RevealSearch,
-              RevealZoom,
-            ],
-          });
-        } else {
-          // Retry after a short delay if plugins aren't ready yet
-          setTimeout(initializeReveal, 100);
-        }
-      }
+                        // Display the page number of the current slide
+                        slideNumber: 'c/t',
 
-      // Start initialization when DOM is ready
-      document.addEventListener("DOMContentLoaded", function () {
-        initializeReveal();
-      });
-    </script>
-  </body>
+                        // Add the current slide number to the URL hash
+                        hash: true,
+
+                        // Push each slide change to the browser history
+                        history: false,
+
+                        // Enable keyboard shortcuts for navigation
+                        keyboard: true,
+
+                        // Enable the slide overview mode
+                        overview: true,
+
+                        // Vertical centering of slides
+                        center: true,
+
+                        // Enables touch navigation on devices with touch input
+                        touch: true,
+
+                        // Loop the presentation
+                        loop: false,
+
+                        // Change the presentation direction to be RTL
+                        rtl: false,
+
+                        // Randomizes the order of slides each time the presentation loads
+                        shuffle: false,
+
+                        // Turns fragments on and off globally
+                        fragments: true,
+
+                        // Flags if the presentation is running in an embedded mode
+                        embedded: false,
+
+                        // Flags if we should show a help overlay when the question mark
+                        // key is pressed
+                        help: true,
+
+                        // Flags if speaker notes should be visible to all viewers
+                        showNotes: false,
+
+                        // Global override for auto-playing embedded media (video/audio/iframe)
+                        autoPlayMedia: null,
+
+                        // Number of milliseconds between automatically proceeding to the
+                        // next slide, disabled when set to 0
+                        autoSlide: 0,
+
+                        // Stop auto-sliding after user input
+                        autoSlideStoppable: true,
+
+                        // Enable slide navigation via mouse wheel
+                        mouseWheel: false,
+
+                        // Hides the address bar on mobile devices
+                        hideAddressBar: true,
+
+                        // Opens links in an iframe preview overlay
+                        previewLinks: false,
+
+                        // Transition style
+                        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                        // Transition speed
+                        transitionSpeed: 'default', // default/fast/slow
+
+                        // Transition style for full page slide backgrounds
+                        backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+                        // Number of slides away from the current that are visible
+                        viewDistance: 3,
+
+                        // Number of slides away from the current that are visible on mobile
+                        mobileViewDistance: 2,
+
+                        // The display mode that will be used to show slides
+                        display: 'block',
+
+                        // Load reveal.js plugins
+                        plugins: [
+                            RevealMarkdown,
+                            RevealHighlight,
+                            RevealNotes,
+                            RevealMath.KaTeX,
+                            RevealSearch,
+                            RevealZoom,
+                        ],
+                    })
+                } else {
+                    // Retry after a short delay if plugins aren't ready yet
+                    setTimeout(initializeReveal, 100)
+                }
+            }
+
+            // Start initialization when DOM is ready
+            document.addEventListener('DOMContentLoaded', function () {
+                initializeReveal()
+            })
+        </script>
+    </body>
 </html>
