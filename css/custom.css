@@ -129,11 +129,20 @@
 
 /* Grid layout helper */
 
+.grid-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    font-size: 0.8em;
+}
+
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
+    font-size: 0.8em;
 }
 
 .grid-3 {
@@ -172,4 +181,57 @@
     padding: 5px 10px;
     border-radius: 4px;
     font-weight: bold;
+}
+
+/* Headers */
+
+.reveal h1 {
+    font-size: 1.5em;
+}
+
+.reveal h2 {
+    font-size: 1em;
+}
+
+.reveal h3 {
+    font-size: 0.8em;
+}
+
+.katex {
+    font-size: 1em !important;
+}
+
+.katex-display {
+    font-size: 1em;
+}
+
+.reveal figcaption {
+    font-size: 0.6em;
+}
+
+.tools-orbit .tool {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(var(--angle))
+        translate(var(--distance)) rotate(calc(-1 * var(--angle))); /* counter-rotate text */
+    text-align: center;
+}
+
+.tools-orbit .tool a {
+    display: block;
+    color: #007acc;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.tools-orbit .tool img {
+    background: #f0f0f0;
+    padding: 8px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+}
+
+.tools-orbit .tool span {
+    display: block;
+    margin-top: 6px;
 }
